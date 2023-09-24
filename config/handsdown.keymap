@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define BT 3
+
 
 &mt {
     flavor = "tap-preferred";
@@ -98,7 +100,7 @@
             &kp TAB    &kp N4     &kp N5     &kp N6     &trans         &trans    &kp LARW   &kp UARW   &kp RARW   &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ ~        │  1       │  2       │  3       │  0       │   │          │          │ DOWN     │          │          │
-           &kp TILDE   &kp N1     &kp N2     &kp N3     &kp N0         &trans     &trans     &kp DARW   &trans     &trans
+           &kp TILDE   &kp N1     &kp N2     &kp N3     &kp N0         &trans     &trans     &kp DARW   &trans     &to BT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0      &kp LGUI       &sk RCTRL  &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -114,10 +116,10 @@
         //│          │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │          │
             &trans     &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │  &       │  _       │  +       │  │       │  `       │
-            &trans     &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &kp GRAVE
+        //│  `       │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
+            &kp GRAVE  &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0      &trans         &sk RCTRL  &to 1
+                                             &to 0     &sk LSHIFT      &sk RCTRL  &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
 		};
