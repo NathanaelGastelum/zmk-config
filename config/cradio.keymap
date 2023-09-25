@@ -57,7 +57,7 @@
             &kp W      &kp F      &kp M      &kp P      &kp V          &kp Z     &dotcolon   &kp Q      &kp J      &sqtexcl
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  T       │  B       │   │  , ;     │  A       │  E       │  I       │ H        │
-            &kp R      &kp S     &hm LALT N &hm LGUI F  &kp B         &commasemi &hm RGUI A &hm RALT E  &kp I      &kp H
+            &kp R      &kp S     &hm LALT N &hm LGUI T  &kp B         &commasemi &hm RGUI A &hm RALT E  &kp I      &kp H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  C       │  L       │  D       │  G       │   │  - +     │  U       │ O        │ Y        │ K        │
             &kp X      &kp C      &kp L      &kp D      &kp G         &minusplus  &kp U      &kp O      &kp Y      &kp K
