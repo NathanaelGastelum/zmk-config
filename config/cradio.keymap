@@ -40,11 +40,11 @@
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        minusplus: minus_plus {
+        minusqmark: minus_qmark {
             compatible = "zmk,behavior-mod-morph";
-            label = "MINUS_PLUS";
+            label = "MINUS_QMARK";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp PLUS>;
+            bindings = <&kp MINUS>, <&kp QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -60,8 +60,8 @@
         //│  R       │  S       │  N       │  T       │  B       │   │  , ;     │  A       │  E       │  I       │ H        │
             &kp R      &kp S     &hm LALT N &hm LGUI T  &kp B         &commasemi &hm RGUI A &hm RALT E  &kp I      &kp H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  X       │  C       │  L       │  D       │  G       │   │  - +     │  U       │ O        │ Y        │ K        │
-            &kp X      &kp C      &kp L      &kp D      &kp G         &minusplus  &kp U      &kp O      &kp Y      &kp K
+        //│  X       │  C       │  L       │  D       │  G       │   │  - ?     │  U       │ O        │ Y        │ K        │
+            &kp X      &kp C      &kp L      &kp D      &kp G         &minusqmark &kp U      &kp O      &kp Y      &kp K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &sk RCTRL  &sk LSHIFT     &kp SPACE   &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -80,7 +80,7 @@
         //│ ~        │  1       │  2       │  3       │  0       │   │          │          │ DOWN     │          │          │
            &kp TILDE   &kp N1     &kp N2     &kp N3     &kp N0         &trans     &trans     &kp DARW   &trans     &to GAME
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 0      &sk LSHIFT       &sk RCTRL  &to 2
+                                             &to 0     &sk LSHIFT      &sk RCTRL  &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
 		};
@@ -131,7 +131,7 @@
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
             &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &to 0      &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
 		};	
