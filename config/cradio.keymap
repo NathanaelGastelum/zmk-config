@@ -19,11 +19,11 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        dotcolon: dot_colon {
+        dotqmark: dot_qmark {
             compatible = "zmk,behavior-mod-morph";
-            label = "DOT_COLON";
+            label = "DOT_QMARK";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
+            bindings = <&kp DOT>, <&kp QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         sqtexcl: single_quote_excl {
@@ -40,13 +40,6 @@
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        minusqmark: minus_qmark {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MINUS_QMARK";
-            #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp QMARK>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
     };
 
 	keymap {
@@ -54,14 +47,14 @@
         layer_0 {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  W       │  F       │  M       │  P       │  V       │   │  Z       │  . :     │  Q       │  J       │  ' !     │
-            &kp W      &kp F      &kp M      &kp P      &kp V          &kp Z     &dotcolon   &kp Q      &kp J      &sqtexcl
+        //│  W       │  F       │  M       │  P       │  V       │   │  Z       │  . ?     │  Q       │  J       │  ' !     │
+            &kp W      &kp F      &kp M      &kp P      &kp V          &kp Z     &dotqmark   &kp Q      &kp J      &sqtexcl
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  T       │  B       │   │  , ;     │  A       │  E       │  I       │ H        │
             &kp R      &kp S     &hm LALT N &hm LGUI T  &kp B         &commasemi &hm RGUI A &hm RALT E  &kp I      &kp H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  X       │  C       │  L       │  D       │  G       │   │  - ?     │  U       │ O        │ Y        │ K        │
-            &kp X      &kp C      &kp L      &kp D      &kp G         &minusqmark &kp U      &kp O      &kp Y      &kp K
+        //│  X       │  C       │  L       │  D       │  G       │   │  - _     │  U       │ O        │ Y        │ K        │
+            &kp X      &kp C      &kp L      &kp D      &kp G         &kp MINUS   &kp U      &kp O      &kp Y      &kp K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &sk RCTRL  &sk LSHIFT     &kp SPACE   &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -88,14 +81,14 @@
 		layer_2 {
 		    bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  ESC     │          │  [ {     │  ] }     │          │   │  ^       │  (       │  )       │  "       │  BKSP    │
-            &kp ESC    &trans     &kp LBKT   &kp RBKT   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp DQT    &kp BKSP
+        //│  ESC     │          │  [       │  ]       │          │   │  ^       │  "       │  <       │  >       │  BKSP    │
+            &kp ESC    &trans     &kp LBKT   &kp RBKT   &trans         &kp CARET  &kp DQT    &kp RPAR   &kp DQT    &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  TAB     │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  ENTER   │
-            &kp TAB    &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp ENTER
+        //│  TAB     │  $       │  (       │  )       │  :       │   │  #       │  =       │  +       │  -       │  ENTER   │
+            &kp TAB    &kp AT     &kp LPAR   &kp RPAR   &kp PRCNT      &kp POUND  &kp EQUAL  &kp PLUS  &kp MINUS   &kp ENTER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  `       │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-            &kp GRAVE  &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &to BT
+        //│  `       │  @       │ {        │  }       │          │   │          │  \       │  *       │  /       │          │
+            &kp GRAVE  &kp AT     &kp LBRC   &kp RBRC     &trans       &none      &kp BSLH   &kp ASTRK  &kp FSLH   &to BT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0     &sk LSHIFT      &sk RCTRL  &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -105,13 +98,13 @@
         game {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  W       │  F       │  M       │  P       │  V       │   │  Z       │  . :     │  Q       │  J       │  ' !     │
-            &kp W      &kp F      &kp M      &kp P      &kp V          &kp Z     &dotcolon   &kp Q      &kp J      &sqtexcl
+        //│  W       │  F       │  M       │  P       │  V       │   │  Z       │  . ?     │  Q       │  J       │  ' !     │
+            &kp W      &kp F      &kp M      &kp P      &kp V          &kp Z     &dotqmark   &kp Q      &kp J      &sqtexcl
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  T       │  B       │   │  , ;     │  A       │  E       │  I       │ H        │
             &kp R      &kp S     &kp N       &kp T      &kp B         &commasemi &kp A       &kp E      &kp I      &kp H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  X       │  C       │  L       │  D       │  G       │   │  - ?     │  U       │ O        │ Y        │ K        │
+        //│  X       │  C       │  L       │  D       │  G       │   │  - _     │  U       │ O        │ Y        │ K        │
             &kp X      &kp C      &kp L      &kp D      &kp G         &minusqmark  &kp U      &kp O      &kp Y      &kp K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                             &kp RCTRL  &kp LSHIFT     &kp SPACE   &to 1
